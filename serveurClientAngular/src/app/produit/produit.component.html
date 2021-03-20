@@ -1,0 +1,16 @@
+<li class="list-group-item">
+    <h4>Produit : {{nomProduit}}</h4>
+    <h4>Prix : {{prixProduit}} $</h4>
+    <br/>
+    <br/>
+    <h4>Votre distance en KM :</h4>
+    <input type="number" class="form-control" [(ngModel)]="distance"/>
+    <h4>Prix avec livraison : {{prixTotal}} $</h4>
+    <button class="btn btn-success" (click)="onTotalClicked()">Total</button>
+    <br/>
+    <br/>
+    <br/>
+    <h4>Veuillez saisir votre numero de carte pour commander</h4>
+    <input type="number" class="form-control" [(ngModel)]="numeroCarte"/>
+    <button class="btn btn-success" (click)="onCommandClicked()">Commander</button>
+</li>
