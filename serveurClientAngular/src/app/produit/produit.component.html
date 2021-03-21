@@ -1,6 +1,6 @@
 <li class="list-group-item">
-    <h4>Produit : {{nomProduit}}</h4>
-    <h4>Prix : {{prixProduit}} $</h4>
+    <h2>Produit : {{nomProduit}}</h2>
+    <h3>Prix : {{prixProduit}} $</h3>
     <br/>
     <br/>
     <h4>Votre distance en KM :</h4>
@@ -11,6 +11,7 @@
     <br/>
     <br/>
     <h4>Veuillez saisir votre numero de carte pour commander</h4>
-    <input type="number" class="form-control" [(ngModel)]="numeroCarte"/>
+    <input type="text" class="form-control" [(ngModel)]="numeroCarte"/>
     <button class="btn btn-success" (click)="onCommandClicked()">Commander</button>
+    <h4>{{etatPayement}}</h4>
 </li>

@@ -24,7 +24,8 @@ class Query(graphene.ObjectType):
     def resolve_produit(self, info):
         return[
             Produit(nomProduit = "Dose de Khabatisme", prixProduit = "50", poidsProduit = "10"),
-            Produit(nomProduit = "Banane", prixProduit = "10", poidsProduit = "5"),
+            Produit(nomProduit = "Banane", prixProduit = "10", poidsProduit = "2"),
+            Produit(nomProduit = "Bouteille d'eau cinema", prixProduit = "3", poidsProduit = "1"),
             ]
 
 @app.route("/", methods=['GET'])
@@ -58,7 +59,7 @@ def verifCarteBancaire(numCarte):
                 luhnTab.append(int(digit))
 
         res = ((int(digitFinal) + sum(luhnTab)) % 10 == 0)  
-    return jsonify({'result' : res})
+    return jsonify({'res' : res})
 
 @app.route("/produit", methods = ['GET'])
 def getProduits():

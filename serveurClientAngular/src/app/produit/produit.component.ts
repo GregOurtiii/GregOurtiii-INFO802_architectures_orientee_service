@@ -17,6 +17,7 @@ export class ProduitComponent implements OnInit {
   prixTotal = 0;
   numeroCarte: number|undefined;
   posts: Observable<any>|undefined
+  etatPayement = "";
 
   urlAPI = "https://serveurmarketplacerest.azurewebsites.net/";
 
@@ -33,6 +34,7 @@ export class ProduitComponent implements OnInit {
     this.posts.forEach(async (value) => {
       this.prixTotal = await value[0];
       console.log(this.prixTotal);
+      this.etatPayement = "";
     });
   }
 
@@ -43,8 +45,14 @@ export class ProduitComponent implements OnInit {
     url = url.concat('/verification' + "/" + this.numeroCarte?.toString());
     this.posts = this.http.get(url);
     this.posts.forEach(async (value) => {
-      var res = await value["result"];
+      var res = await value["res"];
       console.log(res);
+      if(res == true){
+        this.etatPayement = "Paiement accepte !";
+      }
+      else{
+        this.etatPayement = "Paiement refuse..."
+      }
     })
   }
 
